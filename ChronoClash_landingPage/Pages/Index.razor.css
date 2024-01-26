@@ -1,0 +1,48 @@
+
+.title {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 20px auto;
+}
+.last-release {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+.last-release > a {
+    text-align: center;
+    text-decoration: none;
+    color: #018d1a;
+    padding: 5px 10px;
+    background-color: #0c5502b3;
+    border: #018d1a 2px solid;
+    border-radius: 35px;
+}
+.last-release > a:hover {
+    background-color: #0c5502;
+    color: #01aa20;
+}
+.published-date {
+    color: #ffffff86;
+    font-size: 0.5em;
+}
+.description {
+    display: block;
+    width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #00000056;
+    border-radius: 10px;
+}
+.downloads {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.downloads > div {
+    background-color: #00000040;
+}

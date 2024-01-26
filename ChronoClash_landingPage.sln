@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChronoClash_landingPage", "ChronoClash_landingPage\ChronoClash_landingPage.csproj", "{BB614E44-BF40-4A38-932B-E8C8C6210961}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB614E44-BF40-4A38-932B-E8C8C6210961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB614E44-BF40-4A38-932B-E8C8C6210961}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB614E44-BF40-4A38-932B-E8C8C6210961}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB614E44-BF40-4A38-932B-E8C8C6210961}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7BA22421-2357-4358-BC55-F8E82FC64BE1}
+	EndGlobalSection
+EndGlobal

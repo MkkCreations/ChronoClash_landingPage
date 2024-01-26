@@ -1,0 +1,84 @@
+﻿@page "/"
+@using ChronoClash_landingPage.Data;
+@using Markdig;
+@using System.Runtime.InteropServices;
+@inject ReleaseService ReleaseService;
+
+<h1 class="title">
+    Welcome to ChronoClash 
+</h1>
+
+@if (Release == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <h3 class="last-release">
+        <a href=@Release.URL>
+            Latest Release
+        </a>
+        <h3>@Release.Version</h3>
+        <p class="published-date">@Release.PublishedAt</p>
+    </h3>
+
+    <h2>Version Information</h2>
+    <div class="col-6 description">
+        @if (!string.IsNullOrWhiteSpace(@Release.Body))
+        {
+            @((MarkupString)Markdown.ToHtml(@Release.Body))
+        }
+    </div>
+
+    <h2>Your System</h2>
+    <div class="col-6 description">
+        <p>OS: @OS</p>
+        <p>Architecture: @Arch</p>
+    </div>
+
+    <h2>Download</h2>
+    <div class="downloads">
+        @foreach (var artifact in Release.Artifacts)
+        {
+            <div class="card">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <h5 class="card-title">@artifact.Name</h5>
+                    <h6 class="card-subtitle text-muted">@artifact.Size MB</h6>
+                    <a class="btn btn-primary" href=@artifact.URL >Download</a>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private Release? Release { get; set; }
+    private string? OS { get; set; }
+    private string? Arch { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        Release = await ReleaseService.GetRelease();
+        DetectOS();
+    }
+
+    private void DetectOS()
+    {
+        OS = RuntimeInformation.OSDescription;
+        Arch = RuntimeInformation.OSArchitecture.ToString();
+
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            OS = "Windows";
+        }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+        {
+            OS = "Linux";
+        }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+        {
+            OS = "MacOS";
+        }
+    }
+}
