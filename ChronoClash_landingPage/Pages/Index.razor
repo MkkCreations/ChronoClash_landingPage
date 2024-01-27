@@ -30,12 +30,6 @@ else
         }
     </div>
 
-    <h2>Your System</h2>
-    <div class="col-6 description">
-        <p>OS: @OS</p>
-        <p>Architecture: @Arch</p>
-    </div>
-
     <h2>Download</h2>
     <div class="downloads">
         @foreach (var artifact in Release.Artifacts)
@@ -53,32 +47,9 @@ else
 
 @code {
     private Release? Release { get; set; }
-    private string? OS { get; set; }
-    private string? Arch { get; set; }
-
 
     protected override async Task OnInitializedAsync()
     {
         Release = await ReleaseService.GetRelease();
-        DetectOS();
-    }
-
-    private void DetectOS()
-    {
-        OS = RuntimeInformation.OSDescription;
-        Arch = RuntimeInformation.OSArchitecture.ToString();
-
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-        {
-            OS = "Windows";
-        }
-        else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-        {
-            OS = "Linux";
-        }
-        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-        {
-            OS = "MacOS";
-        }
     }
 }
