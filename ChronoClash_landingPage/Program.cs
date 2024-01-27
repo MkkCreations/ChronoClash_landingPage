@@ -9,6 +9,10 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<ReleaseService>();
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8081";
+builder.WebHost.UseUrls($"http://*:{port}");
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

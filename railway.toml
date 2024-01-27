@@ -1,0 +1,7 @@
+[build]
+builder = "dockerfile"
+dockerfilePath = "./ChronoClash_landingPage/Dockerfile"
+
+[deploy]
+startCommand = "dotnet ChronoClash_landingPage.dll"
+restartPolicyType = "never"
