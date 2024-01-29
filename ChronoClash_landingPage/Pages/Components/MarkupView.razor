@@ -1,0 +1,11 @@
+@using Markdig;
+
+@if (!string.IsNullOrWhiteSpace(@Body))
+{
+    @((MarkupString)Markdown.ToHtml(@Body))
+}
+
+@code {
+    [Parameter]
+    public string? Body { get; set; }
+}

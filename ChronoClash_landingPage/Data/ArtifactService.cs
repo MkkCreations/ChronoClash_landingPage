@@ -1,4 +1,5 @@
 ﻿namespace ChronoClash_landingPage.Data;
+using ChronoClash_landingPage.Data.Models;
 
 public class ArtifactService
 {
@@ -9,10 +10,10 @@ public class ArtifactService
         {
             foreach (dynamic asset in assets)
             {
-                if (asset.name == "ChronoClash_macOS.zip") 
-                    Artifacts.Add(new MacOS((int)asset.id, (string)asset.name, (string)asset.browser_download_url, (int)asset.size));
-                if (asset.name == "ChronoClash_windows.zip") 
-                    Artifacts.Add(new Windows((int)asset.id, (string)asset.name, (string)asset.browser_download_url, (int)asset.size));
+                if (((string)asset.name).Contains("macOS")) 
+                    Artifacts.Add(new MacOS((int)asset.id, (string)asset.name, (string)asset.browser_download_url, (int)asset.size, (int)asset.download_count));
+                if (((string)asset.name).Contains("windows")) 
+                    Artifacts.Add(new Windows((int)asset.id, (string)asset.name, (string)asset.browser_download_url, (int)asset.size, (int)asset.download_count));
             }
             return await Task.FromResult(Artifacts);
         }

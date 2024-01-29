@@ -1,0 +1,10 @@
+.artifact {
+    background-color: #00000056 !important;
+}
+.artifact_img {
+    width: 30px;
+    height: 30px;
+}
+.card-title {
+    width: 30%;
+}

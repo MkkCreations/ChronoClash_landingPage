@@ -5,6 +5,14 @@
     text-align: center;
     margin: 20px auto;
 }
+.img {
+    display: block;
+    width: 30%;
+    margin: 20px auto;
+    border-radius: 10px;
+    min-width: 350px;
+
+}
 .last-release {
     display: flex;
     width: 100%;
@@ -38,11 +46,8 @@
     background-color: #00000056;
     border-radius: 10px;
 }
-.downloads {
+.artifacts {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-.downloads > div {
-    background-color: #00000040;
 }

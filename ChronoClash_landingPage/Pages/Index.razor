@@ -1,11 +1,11 @@
 ﻿@page "/"
-@using ChronoClash_landingPage.Data;
-@using Markdig;
+
 @using System.Runtime.InteropServices;
 @inject ReleaseService ReleaseService;
 
 <h1 class="title">
     Welcome to ChronoClash 
+<img class="img" src="/game_img.png" alt="ChronoClash" />
 </h1>
 
 @if (Release == null)
@@ -24,23 +24,14 @@ else
 
     <h2>Version Information</h2>
     <div class="col-6 description">
-        @if (!string.IsNullOrWhiteSpace(@Release.Body))
-        {
-            @((MarkupString)Markdown.ToHtml(@Release.Body))
-        }
+        <MarkupView Body="@Release.Body" />
     </div>
 
     <h2>Download</h2>
-    <div class="downloads">
+    <div class="artifacts">
         @foreach (var artifact in Release.Artifacts)
         {
-            <div class="card">
-                <div class="card-body d-flex justify-content-between align-items-center">
-                    <h5 class="card-title">@artifact.Name</h5>
-                    <h6 class="card-subtitle text-muted">@artifact.Size MB</h6>
-                    <a class="btn btn-primary" href=@artifact.URL >Download</a>
-                </div>
-            </div>
+            <ArtifactView Artifact=@artifact />
         }
     </div>
 }
